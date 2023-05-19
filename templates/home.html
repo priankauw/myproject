@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Fake News Detection</title>
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+	<style> 
+		body {
+			background-image: url("https://i.postimg.cc/hPQnbPrw/bg.jpg");
+			background-size: cover;
+			background-color: #cccccc;
+
+			font-family: 'Roboto', sans-serif;
+			color: #ccc;
+		}
+
+		h1 {
+			font-size: 36px;
+			font-weight: bold;
+			text-align: center;
+			margin-bottom: 40px;
+		}
+
+		.container {
+			max-width: 840px;
+			margin: 0 auto;
+			padding: 10px;
+			background-color: rgba(0, 0, 0, 0.8);
+			border-radius: 10px;
+		}
+
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-bottom: 30px;
+		}
+
+		input[type="text"] {
+			padding: 10px;
+			margin-bottom: 20px;
+			border-radius: 10px;
+			border: none;
+			width: 100%;
+			background-color: #fff;
+			font-size: 16px;
+			font-weight: bold;
+			color: #000;
+		}
+
+		button[type="submit"] {
+			padding: 10px;
+			border-radius: 10px;
+			border: none;
+			width: 70%;
+			background-color: #0066cc;
+			font-size: 16px;
+			font-weight: bold;
+			color: #fff;
+			cursor: pointer;
+		}
+
+		button[type="submit"]:hover {
+			background-color: #0052a3;
+		}
+
+		button[type="button"] {
+			padding: 10px;
+			border-radius: 10px;
+			border: none;
+			width: 100%;
+			background-color: #d9534f;
+			font-size: 16px;
+			font-weight: bold;
+			color: #fff;
+			cursor: pointer;
+		}
+
+		button[type="button"]:hover {
+			background-color: #c9302c;
+		}
+
+		h4 {
+			font-size: 10px;
+			text-align: center;
+			margin-bottom: 5px;
+		}
+		h3 {
+			font-size: 16px;
+			text-align: left;
+			margin-bottom: 5px;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="container">
+		<h1>Predict Fake News</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <!form autocomplete="off">
+	<form action="{{ url_for('predict')}}"method="post">
+	<form action="{{ url_for('tfidf')}}"method="post">
+	<form action="{{ url_for('count')}}"method="post">
+	
+	<form>
+        <input type="text" name="news" placeholder="Enter the news link or url" required="required" >
+		<button type="submit" formaction="{{ url_for('predict') }}" method="post" class="btn btn-primary btn-block btn-large">Predict using Model1</button><br>
+
+        <button type="submit" formaction="{{ url_for('tfidf') }}"method="post" class="btn btn-primary btn-block btn-large">Predict using Model2</button><br>
+		<button type="submit" formaction="{{ url_for('count') }}" method="post" class="btn btn-primary btn-block btn-large">Predict using Model3</button>
+		<br><a href="{{ url_for('more') }}" style="color:white;"> Click here to learn more about the models </a>
+		
+
+	</form> 
+		<!button type="submit" class="btn btn-primary btn-block btn-large"><!Predict using model-2</button>
+		<!button onclick="history.go()">  <!/button>
+		
+        <!input type="submit" value="Submit">
+    
+		 <!button type="reset" value="Reset"> <!/button>
+    </form>
+	<!button type="button" id="check-another" disabled>   <!/button>
+	
+
+
+
+ <h3>{{ prediction_text }}</h3> 
+{% if prediction_text1 == "Real" %}
+   <h4 style="color:green"><b>{{ prediction_text1 }}</b></h4>
+{% else %}
+   <h4 style="color:red;font-size:28px;"><b>{{ prediction_text1 }}</b></h4>
+{% endif %}
+
+    <h3>{{ prediction_text2 }} </h3>
+	
+	<h3>{{prediction_text3}}</h3>
+	
+	</div>
+
+</body>
+</html>

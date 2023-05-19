@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Fake News Detection</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+ <style> 
+
+body {
+  background-image: url("https://i.postimg.cc/hPQnbPrw/bg.jpg");
+  background-color: #cccccc;
+}
+</style>
+</head>
+
+<body>
+
+   <div class="container">
+        <!div class="svg hide" id="svg"></div>
+ <div class="login">
+	<h1>Predict Fake News</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <!form autocomplete="off">
+	<form action="{{ url_for('predict')}}"method="post">
+	<form action="{{ url_for('tfidf')}}"method="post">
+	<form>
+        <input type="text" name="news" placeholder="Enter the news url" required="required" >
+		<button type="submit" formaction="{{ url_for('predict') }}" method="post" class="btn btn-primary btn-block btn-large">Predict using Model1</button><br>
+
+        <button type="submit" formaction="{{ url_for('tfidf') }}"method="post" class="btn btn-primary btn-block btn-large">Predict using Model2</button>
+    </form> 
+		<!button type="submit" class="btn btn-primary btn-block btn-large"><!Predict using model-2</button>
+		<!button onclick="history.go()">  <!/button>
+		
+        <!input type="submit" value="Submit">
+    
+		 <!button type="reset" value="Reset"> <!/button>
+    </form>
+	<!button type="button" id="check-another" disabled>   <!/button>
+	<button onclick="history.back() || window.location.replace('http://127.0.0.1:5000/'); document.getElementById('inputField').value='';"> Check Another News</button>
+
+   <h4><p>{{ prediction_text }} {{ prediction_text1 }}<p></h4>
+   
+    {{ prediction_text2 }}
+	<br>{{prediction_text3}}
+		
+	<!br><!button type="submit" formaction="{{ url_for('real') }}" method="post" class="btn btn-primary btn-block btn-large"><!/button>
+    <!button onclick="location.href='C:\Users\tithy\Flask_practice\Fake-news-detection-master\templates\real.html'"><!/button>
+</div>
+   
+
+ 
+
+</body>
+</html>
