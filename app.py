@@ -19,7 +19,7 @@ app = Flask(__name__)
 CORS(app)
 app=flask.Flask(__name__,template_folder='templates')
 
-with open('model_tfidf_full.pkl', 'rb') as handle:
+with open('model_tfidf_azure.pkl', 'rb') as handle:
 	tfidf_model = pickle.load(handle)
 
 @app.route('/')
